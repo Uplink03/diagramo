@@ -413,7 +413,7 @@ class Delegate extends SQLite3 {
      * $nr - number of rows returned
      * author: alex
      */
-    protected function getMultiple($tableName, $conditions = null, $orders = null, $start = null, $nr = null) {
+    protected function getMultiple($tableName, array $conditions = [], array $orders = [], $start = null, $nr = null) {
         $objects = array(); //this will contain all the found objects
 
         $tableName = strtolower($tableName);
@@ -493,7 +493,7 @@ class Delegate extends SQLite3 {
 
     /*     * Return single */
 
-    protected function getSingle($tableName, $conditions = null) {
+    protected function getSingle($tableName, array $conditions = []) {
         $foundedObjects = $this->getMultiple($tableName, $conditions);
         if (isset($foundedObjects) && count($foundedObjects) > 0) {
             return $foundedObjects[0];
@@ -504,7 +504,7 @@ class Delegate extends SQLite3 {
 
     /*     * Return single */
 
-    protected function getCount($tableName, $conditions = null) {
+    protected function getCount($tableName, array $conditions = []) {
         $foundedObjects = $this->getMultiple($tableName, $conditions);
         return count($foundedObjects);
     }
@@ -517,7 +517,7 @@ class Delegate extends SQLite3 {
      * Ex2: delete('user') //delete ALL users
      */
 
-    protected function delete($tableName, $conditions = null) {
+    protected function delete($tableName, array $conditions = []) {
         $tableName = strtolower($tableName);
 
         //start query building
@@ -585,7 +585,7 @@ class Delegate extends SQLite3 {
     
     public function userGetAll() {
         (DEBUG) ? $_SESSION['logs'][] = __CLASS__ .'{#}'. __FUNCTION__ ."{#}{#}". __LINE__ : '';
-        return $this->getMultiple('user', null, array('email' => 'ASC'));
+        return $this->getMultiple('user', [], array('email' => 'ASC'));
     }
     
     
@@ -596,7 +596,7 @@ class Delegate extends SQLite3 {
     /************************************************************************* */
     public function diagramGetAll() {
         (DEBUG) ? $_SESSION['logs'][] = __CLASS__ . '{#}' . __FUNCTION__ . "{#}{#}" . __LINE__ : '';
-        return $this->getMultiple('diagram', null, array('title' => 'DESC'));
+        return $this->getMultiple('diagram', [], array('title' => 'DESC'));
     }
 
     public function diagramCreate($entry) {
