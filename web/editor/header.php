@@ -72,7 +72,7 @@ $WEBADDRESS = $delegate->settingsGetByKeyNative('WEBADDRESS');
                 <!--<a href="./license.php">License</a>-->
                 <a href="javascript:void(0);" onclick="buildNo()">About</a>
                 <script type="text/javascript">
-                    var msg = "Build number: <?=file_get_contents('../version.num')?>";
+                    var msg = "Build number: <?=file_exists('../version.num') ? file_get_contents('../version.num') : 'N/A'?>";
                     function buildNo(){
                         alert(msg);
                     }

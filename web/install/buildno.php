@@ -16,7 +16,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-$buildNo = file_get_contents('../version.num');
+$buildNo = file_exists('../version.num') ? file_get_contents('../version.num') : 'N/A';
 ?>
 <div id="buildno">
     Build no: <?php echo "$buildNo"?>
