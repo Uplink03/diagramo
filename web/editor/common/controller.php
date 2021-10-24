@@ -16,7 +16,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-require_once dirname(__FILE__) . '/delegate.php';
+require_once __DIR__ . '/delegate.php';
 
 session_start();
 ################################################################################
@@ -449,9 +449,9 @@ function save() {
         $diaData = $delegate->diagramdataGetByDiagramIdAndType($currentDiagramId, Diagramdata::TYPE_DMO);
 
         $fh = fopen(getStorageFolder() . '/' . $currentDiagramId . '.dmo', 'w');
-        //$fh = fopen(dirname(__FILE__) . '/../diagrams/' . $currentDiagramId . '.dmo', 'w');
+        //$fh = fopen(__DIR__ . '/../diagrams/' . $currentDiagramId . '.dmo', 'w');
 
-//            $diaFile = dirname(__FILE__) . '/../diagrams/' . $_REQUEST['diagramId'] . '.dmo';
+//            $diaFile = __DIR__ . '/../diagrams/' . $_REQUEST['diagramId'] . '.dmo';
         $diaSize = fwrite($fh, $_POST['diagram']);
         fclose($fh);
 

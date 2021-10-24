@@ -16,13 +16,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-require_once dirname(__FILE__) . '/common/delegate.php';
+require_once __DIR__ . '/common/delegate.php';
 
 if (!isset($_SESSION)) {
     session_start();
 }
 
-require_once dirname(__FILE__) . '/common/rememberme.php';
+require_once __DIR__ . '/common/rememberme.php';
 
 if (!isset($_SESSION['userId']) || !is_numeric($_SESSION['userId'])) {
     addError("Access denied");

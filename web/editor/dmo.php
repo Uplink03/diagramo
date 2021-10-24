@@ -17,8 +17,7 @@ limitations under the License.
 */
 
 /**Downloads a diagram source file*/
-require_once dirname(__FILE__) . '/common/delegate.php';
-
+require_once __DIR__ . '/common/delegate.php';
 
 if (!isset($_SESSION)) {
     session_start();

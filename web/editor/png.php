@@ -17,7 +17,7 @@ limitations under the License.
 */
 
 
-require_once dirname(__FILE__) . '/common/delegate.php';
+require_once __DIR__ . '/common/delegate.php';
 
 
 if (!isset($_SESSION)) {

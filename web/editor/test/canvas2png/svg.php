@@ -4,7 +4,7 @@
  * for SVG we will dump the file directly + headers */
 
 
-$filePath = dirname(__FILE__) . "/" . $_REQUEST['file'];
+$filePath = __DIR__ . "/" . $_REQUEST['file'];
 if (file_exists($filePath)) {
     $fileSize = filesize($filePath);
 

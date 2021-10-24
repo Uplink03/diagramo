@@ -18,7 +18,7 @@ limitations under the License.
 
 /**This fragment tries to make a login based on the cookie stored on the client's browser*/
 
-require_once dirname(__FILE__) . '/delegate.php';
+require_once __DIR__ . '/delegate.php';
 
 $delegate = new Delegate();
 

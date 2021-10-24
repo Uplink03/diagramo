@@ -17,7 +17,7 @@ limitations under the License.
 */
 
 //Do not allow any other installation if we have settings.php
-if (file_exists(dirname(__FILE__) . '/../common/settings.php')) {
+if (file_exists(__DIR__ . '/../common/settings.php')) {
     print 'Application already installed';
     exit();
 }

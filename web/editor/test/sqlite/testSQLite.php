@@ -4,7 +4,7 @@ print uniqid() . "\n";
 class Delegate extends SQLite3 {
 
     function __construct() {
-        $this->open( dirname(__FILE__) .  '/test.db');
+        $this->open( __DIR__ .  '/test.db');
     }
 
     /**a wrapper method for executing a query*/

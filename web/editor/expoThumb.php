@@ -19,13 +19,13 @@ limitations under the License.
 /* * This snippet goes to diagrams folder and get the proper SVG files
  * You need to use this as files in diagrams folder are protected
  */
-require_once dirname(__FILE__) . '/common/delegate.php';
+require_once __DIR__ . '/common/delegate.php';
 
 if (!isset($_SESSION)) {
     session_start();
 }
 
-$dir = dirname(__FILE__);
+$dir = __DIR__;
 $diagramsFolder = $dir . '/diagrams/';
 
 if (isset($_REQUEST['hash'])) {

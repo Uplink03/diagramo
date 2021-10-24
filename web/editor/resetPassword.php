@@ -16,7 +16,7 @@ limitations under the License.
 */
 
 /*This page is used for both logged users and outsiders to */
-require_once dirname(__FILE__).'/common/settings.php';
+require_once __DIR__.'/common/settings.php';
 
 
 if(!isset($_SESSION)){
@@ -27,7 +27,7 @@ $title = "Reset password | Diagramo";
 $description = $title;
 
 //guardian
-#require_once dirname(__FILE__).'/common/guardian.php';
+#require_once __DIR__.'/common/guardian.php';
 //TODO: use guardian instead
 if(!isset($_SESSION['userId'])){
     echo "Sic";

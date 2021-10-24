@@ -23,7 +23,7 @@ limitations under the License.
         echo file_get_contents($url);
     }
     else{
-        echo file_get_contents(dirname(__FILE__)."/".$url);
+        echo file_get_contents(__DIR__."/".$url);
     }
 
 ?>

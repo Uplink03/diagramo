@@ -6,7 +6,7 @@
 $set = $_REQUEST['set'];
 $figure = $_REQUEST['figure'];
 
-$filePath = dirname(__FILE__) . "/$set/$figure.svg";
+$filePath = __DIR__ . "/$set/$figure.svg";
 if (file_exists($filePath)) {
     $fileSize = filesize($filePath);
 

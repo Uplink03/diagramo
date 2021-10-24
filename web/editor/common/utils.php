@@ -387,7 +387,7 @@ function validateSerialized($data) {
  * @author Alex <alex@scriptoid.com>
  */
 function sendEmail($to, $from, $subject, $body) {
-    require_once(dirname(__FILE__) . "/settings.php"); 
+    require_once(__DIR__ . "/settings.php");
     if(SMTP_ENABLE){
         return sendAdvanceEmail($to, $from, $subject, $body);
     }
@@ -429,7 +429,7 @@ function sendDefaultEmail($to, $from, $subject, $body) {
 function sendAdvanceEmail($to, $from, $subject, $body) {
     require_once "Mail.php"; //you need to have pear and Mail installed (read INSTALL.txt file)
     require_once "Mail/mime.php"; //you need to have pear and Mail_Mime installed (read INSTALL.txt file)
-    require_once(dirname(__FILE__) . "/settings.php"); //load SMTP settings
+    require_once(__DIR__ . "/settings.php"); //load SMTP settings
     
 //    $host = $settings['host'];
 //    $port = $settings['port'];

@@ -22,7 +22,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
-require_once dirname(__FILE__) . '/common/rememberme.php';
+require_once __DIR__ . '/common/rememberme.php';
 
 #print_r($_SESSION['userId']);
 $loggedUser = null;
@@ -31,7 +31,7 @@ if(isset($_SESSION['userId']) && is_numeric($_SESSION['userId'])){
 }
 
 //guardian
-#require_once dirname(__FILE__).'/common/guardian.php';
+#require_once __DIR__.'/common/guardian.php';
 //TODO: use guardian instead
 if (!isset($_SESSION['userId'])) {
     echo "Sic";

@@ -18,7 +18,7 @@ limitations under the License.
 
 function logx($msg) {
     if (false) {
-        $filePath = dirname(__FILE__) . '/log.txt';
+        $filePath = __DIR__ . '/log.txt';
         #print $filePath;
         $fh = fopen($filePath, 'a');
         if (!$fh) {
