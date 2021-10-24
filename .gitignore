@@ -1,11 +1,8 @@
 #more on ignore files here: http://git-scm.com/book/ch2-2.html
 
-documents/sql/*.db3 
+/data/diagramo.db
 
-web/editor/data/diagramo.db
-web/editor/data/diagrams/*.dia
-web/editor/data/diagrams/*.png
-web/editor/data/imported/*.jpg
-web/editor/data/imported/*.png
-web/editor/data/imported/*.svg
-web/editor/data/imported/*.gif
+/data/diagrams/**
+!/data/diagrams/.htaccess
+/data/import/**
+!/data/import/.htaccess
