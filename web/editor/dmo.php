@@ -30,7 +30,7 @@ if (is_numeric($_REQUEST['diagramId'])) {
     $d->close();
     
     if (is_numeric($_SESSION['userId']) || $diagram->public) {
-        $filePath = dirname(__FILE__) . '/data/diagrams/' . $_REQUEST['diagramId'] . '.dmo';
+        $filePath = getDataFolder() . '/diagrams/' . $_REQUEST['diagramId'] . '.dmo';
 
 
         if (file_exists($filePath)) {

@@ -31,7 +31,7 @@ if (is_numeric($_REQUEST['diagramId'])) {
     $d->close();
     
     if ( (isset($_SESSION['userId']) && is_numeric($_SESSION['userId'])) || $diagram->public) {
-        $filePath = dirname(__FILE__) . '/data/diagrams/' . $_REQUEST['diagramId'] . '.png';
+        $filePath = getDataFolder() . '/diagrams/' . $_REQUEST['diagramId'] . '.png';
 
 
         if (file_exists($filePath)) {

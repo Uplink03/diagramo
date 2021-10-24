@@ -74,11 +74,11 @@ function loadRequirements(){
             'help' => 'internet_connection'
         ),
         array(
-            'name' => 'Directory permissions: <b>/editor/data</b> is writable',
+            'name' => 'Directory permissions: <b>/data</b> is writable',
             'wanted' => 'mandatory',
             'type' => 'string',
             'requested' => 'writable',
-            'current' => (@is_writable('../editor/data')) ? 'writable' : 'not writable',
+            'current' => (is_writable(getDataFolder())) ? 'writable' : 'not writable',
             'help' => 'folder_data'
         ),
     );

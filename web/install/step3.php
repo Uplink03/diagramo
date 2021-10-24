@@ -52,16 +52,15 @@ if(isset ($_REQUEST['action']) && $_REQUEST['action'] === 'verify'){
         $passed = false;
     }
     
-    $folderDiagrams = realpath('../editor/data/diagrams');
-    $folderImports = realpath('../editor/data/import');
+    $folderDiagrams = getDataFolder() . '/diagrams';
+    $folderImports = getDataFolder() . '/import';
     
     
     //Insert Company and Root into the database
     if(count($errors) === 0){
-        //path to diagrmo db
-        $dbFilePath = '../editor/data/diagramo.db';
-        //$dbFilePath = 'diagramo.db';
-        
+        //path to diagramo db
+        $dbFilePath = getDataFolder() . '/diagramo.db';
+
         $db = new SQLite3($dbFilePath);
         
         //load commands

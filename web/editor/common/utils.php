@@ -26,7 +26,7 @@ date_default_timezone_set('America/New_York');
   * The path does not contain the trailing /
   */
 function getDataFolder(){
-    return dirname(__FILE__) . '/../data';
+    return __DIR__ . '/../../../data';
 }
 
 /**

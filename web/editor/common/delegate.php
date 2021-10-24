@@ -155,7 +155,7 @@ class Setting {
 class Delegate extends SQLite3 {
 
     function __construct() {
-        $this->open( dirname(__FILE__) .  '/../data/diagramo.db');
+        parent::__construct(getDataFolder() . '/diagramo.db');
     }
 
     /**a wrapper method for executing a query*/

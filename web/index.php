@@ -15,8 +15,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+require_once('editor/common/utils.php');
+
 //Check if already installed
-if (!file_exists(dirname(__FILE__) . '/editor/data/diagramo.db') ) { //no settings file
+if (!file_exists(getDataFolder() . '/diagramo.db') ) { //no settings file
     #print 'Application already installed';
     header("Location: ./install/step1.php");
     exit();

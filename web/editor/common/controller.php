@@ -943,7 +943,7 @@ function importDiagramExe() {
         
         //compute destination file 
         $newFileName = 'tmp' . time() . '.dmo';
-        $destFile = dirname(__FILE__) . '/../data/diagrams/' . $newFileName;
+        $destFile = getDataFolder() . '/diagrams/' . $newFileName;
         if (move_uploaded_file($_FILES['diagramFile']['tmp_name'], $destFile)) {
             redirect('../editor.php?diagramId=' . $newFileName);
         }
