@@ -638,7 +638,7 @@ function rrmdir($dir) {
     
     $fp = opendir($dir);
     
-    if(!fp){
+    if(!$fp){
         return false;
     }
     
