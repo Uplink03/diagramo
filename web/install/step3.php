@@ -33,7 +33,7 @@ $appUrl = substr($fullURL, 0, strpos($fullURL, '/install'));
 $errors = array();
 
 //Try to do server side only if the form on the page was submited (action = verify)
-if(isset ($_REQUEST['action']) && $_REQUEST['action'] == 'verify'){
+if(isset ($_REQUEST['action']) && $_REQUEST['action'] === 'verify'){
     $passed = true;
     
      
@@ -71,7 +71,7 @@ if(isset ($_REQUEST['action']) && $_REQUEST['action'] == 'verify'){
     
     //Create folder structure
     //Create [diagrams] folder
-    if( mkdir('../editor/data/diagrams', 0777, true) ){
+    if(mkdir('../editor/data/diagrams', 0777, true) || is_dir('../editor/data/diagrams')){
         if(!copy('../editor/data/.htaccess', '../editor/data/diagrams/.htaccess')){
             $errors[] = "Could not copy .htaccess to [diagrams] folder";
             $passed = false;
@@ -83,7 +83,7 @@ if(isset ($_REQUEST['action']) && $_REQUEST['action'] == 'verify'){
     }
     
     //Create [import] folder
-    if (mkdir('../editor/data/import', 0777, true)) {
+    if (mkdir('../editor/data/import', 0777, true) || is_dir('../editor/data/import')) {
 
 
         $htFile = fopen('../editor/data/import/.htaccess', 'w');
@@ -112,7 +112,7 @@ if(isset ($_REQUEST['action']) && $_REQUEST['action'] == 'verify'){
     
     
     //Insert Company and Root into the database
-    if(count($errors) == 0){
+    if(count($errors) === 0){
         //path to diagrmo db
         $dbFilePath = '../editor/data/diagramo.db';
         //$dbFilePath = 'diagramo.db';
@@ -234,15 +234,15 @@ if(isset ($_REQUEST['action']) && $_REQUEST['action'] == 'verify'){
             <?php include 'logo.php'?>
             <?php include 'breadcrumb.php' ?>
             <div id="main">
-                <?if(count($errors) > 0){?>
+                <?php if(count($errors) > 0){?>
                 <div style="margin: 5px auto; width: 500px;" >
-                    <?
+                    <?php
                     foreach($errors as $error){
                         print('<div class="error">' . $error . '</div>');
                     }
                     ?>
                 </div>
-                <?}?>
+                <?php }?>
                 <form action="step3.php" name="settingsForm" method="post">
                     <input type="hidden" name="action" value="verify"/>
                     <table align="center" cellpadding="3" cellspacing="2" border="0">
@@ -257,22 +257,20 @@ if(isset ($_REQUEST['action']) && $_REQUEST['action'] == 'verify'){
                                     <tr>
                                         <td>Your name:</td>
                                         <td>&nbsp;&nbsp;</td>
-                                        <td><input tabindex="1" type="text" name="admin_name" value="<?=$_REQUEST['admin_name']?>" /><span class="required">*</span></td>
+                                        <td><input tabindex="1" type="text" name="admin_name" value="<?=$_REQUEST['admin_name'] ?? ''?>" /><span class="required">*</span></td>
                                     </tr>
 
                                     <tr>
                                         <td>Your email:</td>
                                         <td>&nbsp;&nbsp;</td>
-                                        <td><input tabindex="2" type="text" name="admin_email" value="<?=$_REQUEST['admin_email']?>" /><span class="required">*</span></td>
+                                        <td><input tabindex="2" type="text" name="admin_email" value="<?=$_REQUEST['admin_email'] ?? ''?>" /><span class="required">*</span></td>
                                     </tr>
 
                                     <tr>
                                         <td>Your password:</td>
                                         <td>&nbsp;&nbsp;</td>
-                                        <td><input tabindex="3" type="password" name="admin_pass" value="<?=$_REQUEST['admin_pass']?>" /><span class="required">*</span></td>
-
+                                        <td><input tabindex="3" type="password" name="admin_pass" value="<?=$_REQUEST['admin_pass'] ?? ''?>" /><span class="required">*</span></td>
                                     </tr>
-
                                 </table>
                             </td>
                         </tr>                        
@@ -290,11 +288,11 @@ if(isset ($_REQUEST['action']) && $_REQUEST['action'] == 'verify'){
             <div id="navigator">
                 
                 <a href="#" onclick="submitSettingsForm(); return false;">
-                    <?if(count($errors) > 0){?>
+                    <?php if(count($errors) > 0){?>
                         <img src="./assets/retry.png" border="0"/>
-                    <?}else{?>
+                    <?php }else{?>
                         <img src="./assets/next.png" border="0"/>
-                    <?}?>
+                    <?php }?>
                 </a>
             </div>            
             

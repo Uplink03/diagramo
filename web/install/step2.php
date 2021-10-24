@@ -44,40 +44,16 @@ function loadRequirements(){
             'name' => 'PHP Version',
             'wanted' => 'mandatory',
             'type' => 'version',
-            'requested' => '5.3',
-            'current' => phpversion(),
+            'requested' => '7.4',
+            'current' => PHP_VERSION,
             'help' => 'php_version'
-        ),
-        array(
-            'name' => 'PHP Directive: Register Globals',
-            'wanted' => 'mandatory',
-            'type' => 'string',
-            'requested' => 'off',
-            'current' => (ini_get('register_globals') == 1) ? 'on' : 'off',
-            'help' => 'directive_register_globals'
-        ),
-        array(
-            'name' => 'PHP Directive: Magic Quotes',
-            'wanted' => 'mandatory',
-            'type' => 'string',
-            'requested' => 'off',
-            'current' => (ini_get('magic_quotes_gpc') == 1) ? 'on' : 'off',
-            'help' => 'directive_magic_quotes'
-        ),
-        array(
-            'name' => 'PHP Directive: Short Open Tags',
-            'wanted' => 'mandatory',
-            'type' => 'string',
-            'requested' => 'on',
-            'current' => (ini_get('short_open_tag') == 1) ? 'on' : 'off',
-            'help' => 'directive_short_open_tags'
         ),
         array(
             'name' => 'PHP Directive: Allow Url Fopen',
             'wanted' => 'mandatory',
             'type' => 'string',
             'requested' => 'on',
-            'current' => (ini_get('allow_url_fopen') == 1) ? 'on' : 'off',
+            'current' => (ini_get('allow_url_fopen') === "1") ? 'on' : 'off',
             'help' => 'directive_allow_url_fopen'
         ),
         
@@ -86,17 +62,9 @@ function loadRequirements(){
             'wanted' => 'mandatory',
             'type' => 'string',
             'requested' => 'installed',
-            'current' => (is_numeric(array_search('sqlite3', $extensions))) ? 'installed' : 'not installed',
+            'current' => (is_numeric(array_search('sqlite3', $extensions, true))) ? 'installed' : 'not installed',
             'help' => 'extension_sqlite'
         ),
-//        array(
-//            'name' => 'PHP Extension: PCRE',
-//            'wanted' => 'mandatory',
-//            'type' => 'string',
-//            'requested' => 'installed',
-//            'current' => (is_numeric(array_search('pcre', $extensions))) ? 'installed' : 'not installed',
-//            'help' => 'extension_pcre'
-//        ),
         array(
             'name' => 'Internet connection',
             'wanted' => 'mandatory',
@@ -112,16 +80,7 @@ function loadRequirements(){
             'requested' => 'writable',
             'current' => (@is_writable('../editor/data')) ? 'writable' : 'not writable',
             'help' => 'folder_data'
-        )
-//        ,
-//        array(            
-//            'name' => 'Directory permissions: CHMOD 0777 > <b>/editor/data/diagrams</b>',
-//            'wanted' => 'mandatory',
-//            'type' => 'string',
-//            'requested' => 'writable',
-//            'current' => (@is_writable('../editor/data/diagrams')) ? 'writable' : 'not writable',
-//            'help' => 'folder_diagrams'
-//        )
+        ),
     );
     
     return $requirements;
