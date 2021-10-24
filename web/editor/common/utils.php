@@ -644,9 +644,11 @@ function rrmdir($dir) {
     
     while ($f = readdir($fp)) {
         $file = $dir . "/" . $f;
-        if ($f == "." || $f == "..") {
+        if ($f === "." || $f === "..") {
             continue;
-        } else if (is_dir($file) && !is_link($file)) {
+        }
+
+        if (is_dir($file) && !is_link($file)) {
             $r &= rrmdir($file);
         } else {
             $r &= unlink($file);
@@ -734,7 +736,7 @@ function asplit($delimiter,$string){
  * @see http://dev.kanngard.net/Permalinks/ID_20050507183447.html
  */
 function selfURL() {
-    $s = empty($_SERVER["HTTPS"]) ? '' : ($_SERVER["HTTPS"] == "on") ? "s" : "";
+    $s = empty($_SERVER["HTTPS"]) ? '' : ($_SERVER["HTTPS"] === "on" ? "s" : "");
     
     $protocol = strleft(strtolower($_SERVER["SERVER_PROTOCOL"]), "/") . $s;
     

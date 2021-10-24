@@ -35,13 +35,13 @@ $diagramdata = $delegate->diagramdataGetByDiagramIdAndType($_REQUEST['diagramId'
 
 
 $links = array();
-if($diagramdata->fileSize > 0){ 
+if($diagramdata->fileSize > 0){
     $fh = fopen(getStorageFolder() . '/' . $diagramdata->diagramId . '.csv', 'r');
-    $data = fread($fh, $diagramdata->fileSize);    
+    $data = fread($fh, $diagramdata->fileSize);
     fclose($fh);
-    
+
     $csvLines = explode("\n", $data);
-    
+
     foreach($csvLines as $csvLine){
     $shards = explode(',', $csvLine);
         $links[] = $shards;
@@ -82,9 +82,9 @@ $WEBADDRESS = $delegate->settingsGetByKeyNative('WEBADDRESS');
             <h1><?=$diagram->title?></h1>
             <div><?=$diagram->description?></div>
             <div>Public </div>
-            <p/>
+            <p></p>
             <div id="container">
-                <img usemap="#linkLayer" src="<?=$WEBADDRESS?>/editor/png.php?diagramId=<?=$diagram->id?>" width="800" height="600" border="0"/>            
+                <img usemap="#linkLayer" src="<?=$WEBADDRESS?>/editor/png.php?diagramId=<?=$diagram->id?>" width="800" height="600" border="0"/>
             </div>
             <map name="linkLayer" id="linkLayer">
                 <!-- <area shape="rect" coords="100,100,200,200" href="http://scriptoid.com" alt="Scriptoid"> -->

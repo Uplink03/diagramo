@@ -82,7 +82,6 @@ $page = 'editor';
              **/
             var appURL = '<?=$WEBADDRESS?>';
             var figureSetsURL = appURL + '/editor/lib/sets';
-            var insertImageURL = appURL + '/editor/data/import/';
 
             function showImport(){
                 //alert("ok");

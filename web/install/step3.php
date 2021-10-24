@@ -107,7 +107,7 @@ if(isset ($_REQUEST['action']) && $_REQUEST['action'] === 'verify'){
     
     #exit();
     
-    if(count($errors) == 0){
+    if(count($errors) === 0){
         header('Location: ./step4.php');
         //header(sprintf('Location: %s/scriptStep4.php', ABC_SERVER));
     }

@@ -3741,7 +3741,7 @@ window.onresize = function(){
 var currentDiagramId = null;
 
 /**Initialize the page
-* @param {Integer} diagramId (optional) the diagram Id to load
+* @param {int|string} diagramId (optional) the diagram Id to load
 * */
 function init(diagramId){
    var canvas = getCanvas();
