@@ -55,61 +55,6 @@ if(isset ($_REQUEST['action']) && $_REQUEST['action'] === 'verify'){
     $folderDiagrams = realpath('../editor/data/diagrams');
     $folderImports = realpath('../editor/data/import');
     
-    if(file_exists($folderDiagrams)){
-        if(!rrmdir($folderDiagrams)){
-            $errors[] = "Could not remove previously created folder. Please check and delete folder: $folderDiagrams";
-            $passed = false;
-        }
-    }
-    
-    if(file_exists($folderImports)){
-        if(!rrmdir($folderImports)){
-            $errors[] = "Could not remove previously created folder. Please check and delete folder: $folderImports";
-            $passed = false;
-        }
-    }
-    
-    //Create folder structure
-    //Create [diagrams] folder
-    if(mkdir('../editor/data/diagrams', 0777, true) || is_dir('../editor/data/diagrams')){
-        if(!copy('../editor/data/.htaccess', '../editor/data/diagrams/.htaccess')){
-            $errors[] = "Could not copy .htaccess to [diagrams] folder";
-            $passed = false;
-        }
-    }
-    else{
-        $errors[] = "Could not create [diagrams] folder";
-        $passed = false;
-    }
-    
-    //Create [import] folder
-    if (mkdir('../editor/data/import', 0777, true) || is_dir('../editor/data/import')) {
-
-
-        $htFile = fopen('../editor/data/import/.htaccess', 'w');
-        if(FALSE === $htFile){
-            $errors[] = "Could not open .htaccess from [import] folder";
-            $passed = false;
-        }
-        else{
-            $htContent = "Allow from all \nOptions -Indexes";
-            fwrite($htFile, $htContent);
-            fclose($htFile);
-        }        
-    }
-    else{
-        $errors[] = "Could not create [import] folder";
-        $passed = false;
-    }
-    
-    
-    //is_writable('../editor/data')
-    //is_writable('../editor/data/diagrams')
-    
-    //End create folder structure
-    
-    
-    
     
     //Insert Company and Root into the database
     if(count($errors) === 0){
