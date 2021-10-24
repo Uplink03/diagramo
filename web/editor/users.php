@@ -79,13 +79,13 @@ if(strpos($currentHost, ':')){
         <script type="text/javascript" src="./lib/log.js?<?=time()?>"></script>
     </head>
     <body>
-        <? require_once dirname(__FILE__) . '/header.php'; ?>
+        <?php require_once __DIR__ . '/header.php'; ?>
 
         <div id="content" style="text-align: left; /*border: solid 1px red;*/ padding-left: 100px;">
-            <? require_once dirname(__FILE__) . '/common/messages.php'; ?>
+            <?php require_once __DIR__ . '/common/messages.php'; ?>
             <br/>
 
-            <?if(!$l->checkLicense() ){ ?>    
+            <?php if(!$l->checkLicense() ){ ?>
                 <div>
                     <div style="margin: 10px auto; width: 600px;">
                         This feature is disable in free version. 
@@ -93,15 +93,15 @@ if(strpos($currentHost, ':')){
                         Please <a href="./license.php"><img style="vertical-align: middle;" src="assets/images/upgrade-button.png" /></a> to be enable these feature.
                     </div> 
                 </div>            
-            <?} else if(false && $l->host != $currentHost) {?>
+            <?php } else if(false && $l->host != $currentHost) {?>
                 <div style="margin: 10px auto; width: 600px;">
                     License host (<?=$l->host?>) is wrong. IT should be <?=$currentHost?> 
                     <p/> 
                     Please <a href="./license.php"><img style="vertical-align: middle;" src="assets/images/upgrade-button.png" /></a> to be enable these feature.
                 </div>            
-            <?} else {?>
+            <?php } else {?>
                 <!--Collaborators-->
-                <?if(count($users) > 0 ){?>
+                <?php if(count($users) > 0 ){?>
                 <div class="form"  style="width: 600px;">
                     <div class="formTitle" >
                         <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -117,7 +117,7 @@ if(strpos($currentHost, ':')){
                             <td><span class="formLabel">Email</span></td>
                             <td align="center"><span class="formLabel">Remove user</span></td>
                         </tr>
-                        <?foreach($users as $user){                        
+                        <?php foreach($users as $user){
                         ?>
                         <tr>
                             <td align="center">
@@ -125,19 +125,19 @@ if(strpos($currentHost, ':')){
                             </td>
 
                             <td align="center">
-                                <? if($user->id == $_SESSION['userId']){?>
+                                <?php if($user->id == $_SESSION['userId']){?>
                                     N/A
-                                <?}else{?>                            
+                                <?php }else{?>
                                     <a onclick="return confirmation('Are you sure you want to remove the collaborator?');" href="./common/controller.php?action=removeUser&userId=<?=$user->id?>"><img style="vertical-align:middle; margin-right: 3px;" src="./assets/images/remove.gif" border="0" width="24" height="24"/></a>                        
-                                <?}?>
+                                <?php }?>
                             </td>
                         </tr>
-                        <?}?>
+                        <?php }?>
                     </table>
                 </div>            
-                <?}else{?>
+                <?php }else{?>
                     No users to manage
-                <?}?>
+                <?php }?>
                 <!--End collaborators-->
 
 
@@ -175,7 +175,7 @@ if(strpos($currentHost, ':')){
                     <a href="./editor.php?diagramId=<?=$_REQUEST['diagramId']?>">back to diagram</a>
                 </div>-->
             
-            <?}?>
+            <?php }?>
         </div>
 
         <p></p>

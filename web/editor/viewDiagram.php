@@ -88,9 +88,9 @@ $WEBADDRESS = $delegate->settingsGetByKeyNative('WEBADDRESS');
             </div>
             <map name="linkLayer" id="linkLayer">
                 <!-- <area shape="rect" coords="100,100,200,200" href="http://scriptoid.com" alt="Scriptoid"> -->
-                <?foreach($links as $link){?>
+                <?php foreach($links as $link){?>
                 <area shape="rect" coords="<?=$link[0]?>, <?=$link[1]?>, <?=$link[2]?>, <?=$link[3]?>" href="<?=$link[4]?>" alt="<?=$link[4]?>" target="_blank">
-                <?}?>
+                <?php }?>
             </map>
             <!-- <textarea><?=$data?></textarea> -->
         </div>

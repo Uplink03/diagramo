@@ -61,13 +61,13 @@ $page = 'editDiagram';
     </head>
     <body>
         <div id="page">
-            <? require_once dirname(__FILE__) . '/header.php'; ?>
+            <?php require_once __DIR__ . '/header.php'; ?>
 
             
 
             <div id="content">
                 
-                <? require_once dirname(__FILE__) . '/common/messages.php'; ?>
+                <?php require_once __DIR__ . '/common/messages.php'; ?>
                 <br/>
                 <div class="form" style="width: 400px;">
                     <div class="formTitle" >

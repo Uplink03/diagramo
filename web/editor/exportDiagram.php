@@ -87,10 +87,10 @@ if(strpos($currentHost, ':')){
         <script type="text/javascript" src="./lib/log.js?<?=time()?>"></script>
     </head>
     <body>
-        <? require_once dirname(__FILE__) . '/header.php'; ?>
+        <?php require_once __DIR__ . '/header.php'; ?>
 
         <div id="content" style="text-align: left; /*border: solid 1px red;*/ padding-left: 100px;">
-            <? require_once dirname(__FILE__) . '/common/messages.php'; ?>
+            <?php require_once __DIR__ . '/common/messages.php'; ?>
 
             <br/>
             <div class="form"  style="width: 600px;">
@@ -103,18 +103,18 @@ if(strpos($currentHost, ':')){
                     </table>
                 </div>
                 
-                <?if(false && !$l->checkLicense() ){ ?>    
+                <?php if(false && !$l->checkLicense() ){ ?>
                     <div>
                         This feature (export as PNG and as DMO) is disable in free version.
                         <p/>
                         Please <a href="./license.php"><img style="vertical-align: middle;" src="assets/images/upgrade-button.png" /></a> to be enable these feature.
                     </div>            
-                <?} else if(false && $l->host != $currentHost) {?>
+                <?php } else if(false && $l->host != $currentHost) {?>
                     <div style="background-color: yellow; font-size: 30px;">
                         License host (<?=$l->host?>) is wrong. It should be: <?=$currentHost?> <p/> 
                         Please <a href="./license.php"><img style="vertical-align: middle;" src="assets/images/upgrade-button.png" /></a> to be enable these feature.
                     </div>            
-                <?} else {?>
+                <?php } else {?>
                     <!--
                     <h3>As SVG</h3>
                     <input type="text" value="<?=$svgLink?>"  style="width: 400px;"/> <br/>
@@ -138,7 +138,7 @@ if(strpos($currentHost, ':')){
                     <a href="<?=$jpgLink?>" target="_blank"><?=$jpgLink?></a>
                     <p/>
                     -->
-                <?}?>
+                <?php }?>
                 
                 
 

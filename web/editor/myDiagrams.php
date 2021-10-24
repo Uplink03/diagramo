@@ -74,10 +74,10 @@ function firstName($email){
         </script>
     </head>
     <body>
-        <? require_once dirname(__FILE__) . '/header.php'; ?>
+        <?php require_once __DIR__ . '/header.php'; ?>
         
         <div id="content" style="text-align: center; margin-left: auto; margin-right: auto;">
-            <? require_once dirname(__FILE__) . '/common/messages.php'; ?>
+            <?php require_once __DIR__ . '/common/messages.php'; ?>
             <br/>
             
             
@@ -110,7 +110,7 @@ function firstName($email){
                     </tr>     
                     
                     <!--Data-->
-                    <? for ($i=0; $i < count($allDiagrams); $i++) {
+                    <?php for ($i=0; $i < count($allDiagrams); $i++) {
                          $myDiagram = $allDiagrams[$i];
                         //$svgLink = $url . '/diagram/' . $allDiagrams->hash . '.svg';
                         $svgLink = sprintf('./png.php?type=svg&diagramId=%d', $myDiagram->id);
@@ -144,13 +144,13 @@ function firstName($email){
                             <td colspan="3">&nbsp;</td>                            
                         </tr>
                     
-                        <?if($i < count($allDiagrams) - 1){ ?>
+                        <?php if($i < count($allDiagrams) - 1){ ?>
                         <tr>
                             <td colspan="6" style="border-top: 1px solid gray;">&nbsp;</td>
                         </tr>
-                        <?}?>
+                        <?php }?>
                     
-                    <? } ?>
+                    <?php } ?>
                 </table>
             </div>
 

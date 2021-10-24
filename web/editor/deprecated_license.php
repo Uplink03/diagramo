@@ -39,14 +39,14 @@ $DIAGRAMO = $delegate->settingsGetByKeyNative('DIAGRAMO');
     </head>
     <body>
         <div id="page">
-            <?require_once dirname(__FILE__) . '/header.php'; ?>
+            <?php require_once __DIR__ . '/header.php'; ?>
             
             
             <div id="content"  style="text-align: center; background-color: #F6F6F6">
-                <?require_once dirname(__FILE__) . '/common/messages.php';?>
+                <?php require_once __DIR__ . '/common/messages.php';?>
                 <br/>
 
-                <?if($rawLicense == ''){?>
+                <?php if($rawLicense == ''){?>
                 <div class="form" style="width: 400px; text-align: left; ">
                     <div class="formTitle" >
                         <span class="menuText" style="font-size: 14px; font-family: Arial; color: #6E6E6E;">License</span>
@@ -67,7 +67,7 @@ $DIAGRAMO = $delegate->settingsGetByKeyNative('DIAGRAMO');
                         <input type="image" src="./assets/images/save.gif" style="vertical-align: middle;"  value="Save"/>
                     </form>
                 </div>
-                <?} else {
+                <?php } else {
                     $l = new License();
                     $l->load($rawLicense);
                 ?>
@@ -76,7 +76,7 @@ $DIAGRAMO = $delegate->settingsGetByKeyNative('DIAGRAMO');
                     Host: <?=$l->host?>
                     <br/>
                     Serial: <?=$l->serial?>
-                <?}?>
+                <?php }?>
             </div>
 
             <p/>

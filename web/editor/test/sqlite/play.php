@@ -202,7 +202,7 @@ if($_REQUEST['action'] == 'init'){
                     <td>lastUpdate</td>
                     <td>delete</td>
                 </tr>
-            <?
+            <?php
             $diagrams = diagramGetAll($dbhandle);
             foreach($diagrams as $diagram){?>
                 <tr>
@@ -214,16 +214,16 @@ if($_REQUEST['action'] == 'init'){
                     <td><?=$diagram->lastUpdate?></td>
                     <td><a href="?action=delete&diagramId=<?=$diagram->id?>">delete</a></td>
                 </tr>
-            <?}?>
+            <?php }?>
             </table> 
             <a href="?action=init">Init</a> | 
             <a href="?action=populate">Populate</a>
         </body>
     </html>
-<?}?>
+<?php }?>
         
 
 
-<?
+<?php
 sqlite_close($dbhandle);
 ?>

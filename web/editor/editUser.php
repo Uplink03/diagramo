@@ -68,17 +68,17 @@ $user = $delegate->userGetById($_REQUEST['userId']);
         </script>
     </head>
     <body>
-        <? require_once dirname(__FILE__) . '/header.php'; ?>
+        <?php require_once __DIR__ . '/header.php'; ?>
 
         <div id="content" style="text-align: left; /*border: solid 1px red;*/ padding-left: 100px;">
-            <? require_once dirname(__FILE__) . '/common/messages.php'; ?>
+            <?php require_once __DIR__ . '/common/messages.php'; ?>
             <br/>
             
            
             <p/>
 
             <!--Edit user-->
-            <?if($loggedUser->level == User::LEVEL_ADMIN){?>
+            <?php if($loggedUser->level == User::LEVEL_ADMIN){?>
             <div class="form"  style="width: 600px;">
                 <div class="formTitle" >
                     <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -108,7 +108,7 @@ $user = $delegate->userGetById($_REQUEST['userId']);
                     </table>
                 </form>
             </div>
-            <?}?>
+            <?php }?>
             <!--End edit user-->
             
         </div>

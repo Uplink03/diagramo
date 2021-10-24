@@ -1,4 +1,4 @@
-<?
+<?php
 
 /*
 Copyright [2014] [Diagramo]
@@ -173,7 +173,7 @@ $page = 'editor';
     </head>
     <body onload="init('<?= isset($_REQUEST['diagramId']) ? $_REQUEST['diagramId']:''?>');" id="body">
         
-        <? require_once dirname(__FILE__) . '/header.php'; ?>
+        <?php require_once __DIR__ . '/header.php'; ?>
 
         <div id="actions">
             
@@ -185,10 +185,10 @@ $page = 'editor';
             
             <a style="text-decoration: none;" href="./myDiagrams.php" title="Open diagram"><img src="assets/images/icon_open.jpg" border="0" width="16" height="16"/></a>
 
-            <?if(isset($_REQUEST['diagramId']) &&  is_numeric($_REQUEST['diagramId']) ){//option available ony when the diagram was saved?>
+            <?php if(isset($_REQUEST['diagramId']) &&  is_numeric($_REQUEST['diagramId']) ){//option available ony when the diagram was saved?>
                 <img class="separator" src="assets/images/toolbar_separator.gif" border="0" width="1" height="16"/>
                 <a style="text-decoration: none;" href="#" onclick="return print_diagram();" title="Print diagram"><img src="assets/images/icon_print.png" border="0" width="16" height="16"/></a>
-            <?}?>
+            <?php }?>
 
             <img class="separator" src="assets/images/toolbar_separator.gif" border="0" width="1" height="16"/>
             
@@ -476,6 +476,6 @@ $page = 'editor';
             }
         </script>
         <br/>
-         <? //require_once dirname(__FILE__) . '/common/analytics.php';?>
+         <?php //require_once __DIR__ . '/common/analytics.php';?>
     </body>
 </html>
