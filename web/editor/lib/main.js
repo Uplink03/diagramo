@@ -3577,7 +3577,7 @@ function load(diagramId){
         function(data){
 //                        alert(data);
             try{
-                var obj  = eval('(' + data + ')');
+                var obj = JSON.parse(data);
                 if( !('v' in obj) || obj.v != DIAGRAMO.fileVersion){
                     Importer.importDiagram(obj);//import 1st version of Diagramo files
                 }
